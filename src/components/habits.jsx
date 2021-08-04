@@ -10,13 +10,28 @@ class Habits extends Component {
     ]
   }
   
+  handleIncrement = habit => {
+    console.log(`handleIncrement ${habit.name}`);
+  };
+  
+  handleDecrement = habit => {
+    console.log(`handleDecrement ${habit.name}`);
+  };
+
+  handleDelete = habit => {
+    console.log(`handleDelete ${habit.name}`);
+  };
+
   render() {
     return (
       <ul>
         {this.state.habits.map(habit => (
           <Habit 
             key={habit.id}
-            habit={habit} 
+            habit={habit}
+            onIncrement={this.handleIncrement}
+            onDecrement={this.handleDecrement}
+            onDelete={this.handleDelete} 
           />
         ))}
       </ul>
