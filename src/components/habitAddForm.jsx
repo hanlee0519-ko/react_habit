@@ -10,6 +10,7 @@ const HabitAddForm = memo(props => {
     name && props.onAdd(name);
     formRef.current.reset();
   };
+  
   return (
     <form ref={formRef} className="add-form" onSubmit={onSubmit}>
       <input
@@ -23,11 +24,3 @@ const HabitAddForm = memo(props => {
 });
 
 export default HabitAddForm;
-
-// state 없는 경우, function component
-// PureComponent, function component with memo
-
-// function HabitAddForm(props) {
-//  
-// }
-
