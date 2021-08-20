@@ -9,11 +9,9 @@ class HabitAddForm extends PureComponent {
     const name = this.inputRef.current.value;
     name && this.props.onAdd(name);
     this.formRef.current.reset();
-    // this.input.current.value = '';
   };
 
   render() {
-    console.log('habitAddForm');
     return (
       <form ref={this.formRef} className="add-form" onSubmit={this.onSubmit}>
         <input

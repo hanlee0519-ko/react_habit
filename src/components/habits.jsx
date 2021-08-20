@@ -20,7 +20,6 @@ class Habits extends Component {
   }
 
   render() {
-    console.log('habits');
     return (
     <div className="habits">
       <HabitAddForm onAdd={this.handleAdd} />
@@ -31,7 +30,7 @@ class Habits extends Component {
             habit={habit} 
             onIncrement={this.handleIncrement}
             onDecrement={this.handleDecrement}
-            onDelete={this.handleDelete} // onDelete={(habit) => {this.props.handleDelete(habit)}}
+            onDelete={this.handleDelete} 
           />
         ))}
       </ul>
