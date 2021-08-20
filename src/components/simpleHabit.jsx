@@ -1,28 +1,34 @@
-import React, { Component } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
-class SimpleHabit extends Component {
-  state = {
-    count: 0,
-  };
+const SimpleHabit = () => {
+  const [count, setCount] = useState(0);
+  const spanRef = useRef();
 
-  handleIncrement = () => {
-    this.setState({ count: this.state.count + 1 });
-  };
+  const handleIncrement = useCallback(() => {
+    setCount(count + 1);
+  });
 
-  render() {
-    return (
-      <li className="habit">
-        <span className="habit-name">Reading</span>
-        <span className="habit-count">{this.state.count}</span>
-        <button
-          className="habit-button habit-increase"
-          onClick={this.handleIncrement}
-        >
-          <i className="fas fa-plus-square"></i>
-        </button>
-      </li>
-    );
-  }
-}
+  useEffect(() => {
+    console.log(`mounted & updated!: ${count}`);
+  }, [count]);
+
+  return (
+    <li className="habit">
+      <span 
+        ref={spanRef} 
+        className="habit-name"
+      >
+        Reading
+      </span>
+      <span className="habit-count">{count}</span>
+      <button
+        className="habit-button habit-increase"
+        onClick={handleIncrement}
+      >
+        <i className="fas fa-plus-square"></i>
+      </button>
+    </li>
+  );
+};
 
 export default SimpleHabit;
